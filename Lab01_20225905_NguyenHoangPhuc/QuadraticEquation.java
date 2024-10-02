@@ -11,8 +11,6 @@ public class QuadraticEquation {
         String cStr = JOptionPane.showInputDialog("Enter coefficient c:");
         double c = Double.parseDouble(cStr);
 
-        String result;
-
         if (a == 0) {
             if (b == 0) {
                 if (c == 0) {
