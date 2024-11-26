@@ -17,5 +17,7 @@ public class CartTest {
         cart.addDigitalVideoDisc(dvd3);
 
         cart.print();
+        cart.searchByTitle("Star Wars");
+        cart.searchByID(4);
     }
 }

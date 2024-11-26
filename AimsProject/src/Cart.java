@@ -59,4 +59,24 @@ public class Cart {
         }
         System.out.println("Total cost: " + this.totalCost() + "\n***************************************************");
     }
+    //Nguyen Hoang Phuc 20225905
+    public void searchByID(int id) {
+        for(int i = 0; i < qtyOrdered; i++) {
+            if(itemsOrdered[i].getId() == id) {
+                System.out.println("Found: " + itemsOrdered[i].toString());
+                return;
+            }
+        }
+        System.out.println("No such ID: " + id + "\n");
+    }
+
+    public void searchByTitle(String title) {
+        for(int i = 0; i < qtyOrdered; i++) {
+            if(itemsOrdered[i].isMatch(title)) {
+                System.out.println("Found: " + itemsOrdered[i].toString());
+                return;
+            }
+        }
+        System.out.println("No such title: " + title + "\n");
+    }
 }
