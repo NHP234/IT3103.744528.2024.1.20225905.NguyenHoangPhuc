@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 public class FirstDialog {
     public static void main(String[] args) {
         JOptionPane.showMessageDialog(null, "Nguyen Hoang Phuc 20225905\nHello world! How are you?");

@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 public class LinearEquation {
     public static void main(String[] args) {
         String str_a = JOptionPane.showInputDialog(null, "Nguyen Hoang Phuc 20225905\nEnter coefficient a: ");
