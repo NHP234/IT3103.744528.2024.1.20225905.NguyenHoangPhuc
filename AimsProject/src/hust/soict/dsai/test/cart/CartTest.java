@@ -1,7 +1,12 @@
+package hust.soict.dsai.test.cart;
+
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
 //Nguyen Hoang Phuc 20225905
 public class CartTest {
     public static void main(String[] args) {
-        //Create a new AimsProject.hust.soict.hedspi.aims.cart.Cart
+        //Create a new AimsProject.hust.soict.hedspi.aims.cart.hust.soict.dsai.aims.cart.Cart
         Cart cart = new Cart();
 
         //Create new dvd objects and add them to the cart

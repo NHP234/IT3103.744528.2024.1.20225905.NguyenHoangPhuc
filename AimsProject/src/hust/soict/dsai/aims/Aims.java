@@ -1,3 +1,8 @@
+package hust.soict.dsai.aims;
+
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
 public class Aims {
     public static void main(String[] args) {
         //Create a new card
@@ -16,7 +21,7 @@ public class Aims {
 //        anOrder.addDigitalVideoDisc(dvd3);
 
         //Test Overloading by differing types of parameter
-        DigitalVideoDisc [] dvds = {dvd1, dvd2, dvd3};
+        DigitalVideoDisc[] dvds = {dvd1, dvd2, dvd3};
         anOrder.addDigitalVideoDisc(dvds);
 
         //Test Overloading by differing the number of parameters
