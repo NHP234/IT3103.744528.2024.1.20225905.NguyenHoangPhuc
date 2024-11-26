@@ -1,7 +1,7 @@
-package hust.soict.dsai.test.cart;
+package hust.soict.hedspi.test.cart;
 
-import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.hedspi.aims.cart.Cart;
+import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 
 //Nguyen Hoang Phuc 20225905
 public class CartTest {
