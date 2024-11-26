@@ -16,16 +16,18 @@ public class Aims {
 //        anOrder.addDigitalVideoDisc(dvd3);
 
         //Test Overloading by differing types of parameter
-//        DigitalVideoDisc [] dvds = {dvd1, dvd2, dvd3};
-//        anOrder.addDigitalVideoDisc(dvds);
+        DigitalVideoDisc [] dvds = {dvd1, dvd2, dvd3};
+        anOrder.addDigitalVideoDisc(dvds);
 
         //Test Overloading by differing the number of parameters
-        anOrder.addDigitalVideoDisc(dvd1, dvd2);
+//        anOrder.addDigitalVideoDisc(dvd1, dvd2);
 
 
         anOrder.removeDigitalVideoDisc(dvd2);
 
         System.out.println("Total cost is: ");
         System.out.print(anOrder.totalCost());
+        System.out.println("dvd3's id: " + dvd3.getID());
+
     }
 }
