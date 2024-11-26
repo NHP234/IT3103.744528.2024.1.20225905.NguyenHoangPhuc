@@ -50,4 +50,13 @@ public class Cart {
 
         return totalCost;
     }
+
+    public void print()
+    {
+        System.out.println("Nguyen Hoang Phuc 20225905\n***********************CART***********************\nOrdered Items:\n");
+        for(int i = 0; i < qtyOrdered; i++) {
+            System.out.println(itemsOrdered[i].toString());
+        }
+        System.out.println("Total cost: " + this.totalCost() + "\n***************************************************");
+    }
 }
