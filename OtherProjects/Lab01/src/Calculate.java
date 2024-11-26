@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 public class Calculate {
     public static void main(String[] args) {
         String strNum1 = JOptionPane.showInputDialog(null, "Nguyen Hoang Phuc 20225905\n" +

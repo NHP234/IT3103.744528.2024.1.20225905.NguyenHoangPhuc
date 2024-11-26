@@ -1,5 +1,6 @@
 public class Aims {
     public static void main(String[] args) {
+        //Create a new card
         Cart anOrder = new Cart();
 
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King",
@@ -10,16 +11,13 @@ public class Aims {
                 "Science Fiction", "George Lucas", 87, 24.95f);
         anOrder.addDigitalVideoDisc(dvd2);
 
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation",18.99f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladdin",
+                "Animation", 18.99f);
         anOrder.addDigitalVideoDisc(dvd3);
 
-        System.out.println("Nguyen Hoang Phuc 20225905\n");
-        System.out.println("Total Cost is: ");
-        System.out.println(anOrder.totalCost());
+        anOrder.removeDigitalVideoDisc(dvd2);
 
-        anOrder.removeDigitalVideoDisc(dvd3);
-
-        System.out.println("Total Cost is: ");
-        System.out.println(anOrder.totalCost());
+        System.out.println("Total cost is: ");
+        System.out.print(anOrder.totalCost());
     }
 }

@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 public class ChoosingOption {
     public static void main(String[] args) {
         int option = JOptionPane.showConfirmDialog(null,
