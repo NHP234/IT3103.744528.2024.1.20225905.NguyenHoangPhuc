@@ -80,4 +80,14 @@ public class DigitalVideoDisc {
     public void setCost(float cost) {
         this.cost = cost;
     }
+
+    //Ham in DVD
+    @Override
+    public String toString() {
+        return this.id + ". DVD - " + this.title + " - " + this.category + " - " + this.director + " - " + this.length + ": " + this.cost;
+    }
+
+    public boolean isMatch(String title) {
+        return this.title.equals(title);
+    }
 }
