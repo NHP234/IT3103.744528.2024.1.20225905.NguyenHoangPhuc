@@ -62,7 +62,7 @@ public class Cart {
     //Nguyen Hoang Phuc 20225905
     public void searchByID(int id) {
         for(int i = 0; i < qtyOrdered; i++) {
-            if(itemsOrdered[i].getId() == id) {
+            if(itemsOrdered[i].getID() == id) {
                 System.out.println("Found: " + itemsOrdered[i].toString());
                 return;
             }
