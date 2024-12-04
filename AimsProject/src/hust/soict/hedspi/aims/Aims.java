@@ -213,7 +213,7 @@ public class Aims {
         System.out.println("Update store: ");
         System.out.println("1. Add a media to store");
         System.out.println("2. Remove a media from store");
-        System.out.println("0.Back");
+        System.out.println("0. Back");
         System.out.println("Please choose a number: 0-1-2");
 
         int choice = scanner.nextInt();

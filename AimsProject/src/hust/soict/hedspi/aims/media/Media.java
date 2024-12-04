@@ -3,7 +3,7 @@ package hust.soict.hedspi.aims.media;
 import java.util.Comparator;
 
 //Nguyen Hoang Phuc 20225905
-public abstract class Media {
+public abstract class Media implements Comparable<Media> {
     private int id;
     private String title;
     private String category;
@@ -57,5 +57,14 @@ public abstract class Media {
     //Nguyen Hoang Phuc 20225905
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
+
+    //Sort by title then cost
+    public int compareTo(Media other) {
+        int titleComparison = this.title.compareTo(other.title);
+        if (titleComparison == 0) {
+            return Float.compare(this.cost, other.cost);
+        }
+        return titleComparison;
+    }
 
 }

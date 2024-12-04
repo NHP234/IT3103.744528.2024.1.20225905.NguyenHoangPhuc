@@ -1,6 +1,6 @@
 package hust.soict.hedspi.aims.media;
 
-public class DigitalVideoDisc extends Disc implements Playable{
+public class DigitalVideoDisc extends Disc implements Playable, Comparable<Media>{
     public DigitalVideoDisc(int id, String title, String category, float cost, int length, String director) {
         super(id, title, category, cost, length, director);
     }
@@ -12,5 +12,21 @@ public class DigitalVideoDisc extends Disc implements Playable{
     }
     public String toString() {
         return super.toString();
+    }
+    public int compareTo(Media other) {
+        if (other instanceof DigitalVideoDisc) {
+            DigitalVideoDisc otherDVD = (DigitalVideoDisc) other;
+            int titleComparison = this.getTitle().compareTo(otherDVD.getTitle());
+            if (titleComparison == 0) {
+                int lengthComparison = Integer.compare(otherDVD.getLength(), this.getLength());
+                if (lengthComparison == 0) {
+                    return Float.compare(this.getCost(), otherDVD.getCost());
+                }
+                return lengthComparison;
+            }
+            return titleComparison;
+        } else {
+            return super.compareTo(other);
+        }
     }
 }
