@@ -24,5 +24,9 @@ public class Book extends Media{
         }
         else System.out.println("Author is not in the list");
     }
+
+    public String toString() {
+        return super.toString() + ", authors: " + authors;
+    }
 }
 

@@ -3,14 +3,13 @@ package hust.soict.hedspi.aims.media;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompactDisc extends Media implements Playable {
+public class CompactDisc extends Disc implements Playable {
     private String artist;
     private List<Track> tracks = new ArrayList<Track>();
 
-    public CompactDisc(int id, String title, String category, float cost, String artist, List<Track> tracks) {
-        super(id, title, category, cost);
+    public CompactDisc(int id, String title, String category, float cost, int length, String director, String artist) {
+        super(id, title, category, cost, length, director);
         this.artist = artist;
-        this.tracks = tracks;
     }
 
     @Override
@@ -49,4 +48,13 @@ public class CompactDisc extends Media implements Playable {
         return length;
     }
 
+    public String toString() {
+        String s = super.toString();
+        s += ", Artist: " + artist;
+        s += "\n";
+        for(Track track : tracks) {
+            s += track.toString() + "\n";
+        }
+        return s;
+    }
 }

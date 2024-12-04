@@ -1,4 +1,7 @@
 package hust.soict.hedspi.aims.media;
+
+import java.util.Comparator;
+
 //Nguyen Hoang Phuc 20225905
 public abstract class Media {
     private int id;
@@ -44,9 +47,15 @@ public abstract class Media {
     @Override
     public boolean equals(Object obj) {
         Media media = (Media) obj;
-        if(media.getTitle().equals(this.getTitle())) {
-            return true;
-        }
-        else return false;
+        return media.getTitle().equals(this.getTitle());
     }
+
+    public String toString(){
+        return this.getId() + " " + this.getTitle() + " " + this.getCategory() + " " + this.getCost();
+    }
+
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
+
+
 }

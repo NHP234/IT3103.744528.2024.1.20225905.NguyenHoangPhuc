@@ -35,4 +35,8 @@ public class Track implements Playable {
         }
         return false;
     }
+
+    public String toString() {
+        return "Title: " + this.title + ", Length: " + this.length;
+    }
 }
