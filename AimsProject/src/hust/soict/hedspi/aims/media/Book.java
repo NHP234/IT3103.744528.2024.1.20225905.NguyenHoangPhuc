@@ -16,7 +16,7 @@ public class Book extends Media{
         }
         else System.out.println("Author is already in the list");
     }
-
+    //Nguyen Hoang Phuc 20225905
     public void removeAuthor(String authorName) {
         if(authors.contains(authorName)) {
             authors.remove(authorName);
@@ -26,7 +26,7 @@ public class Book extends Media{
     }
 
     public String toString() {
-        return super.toString() + ", authors: " + authors;
+        return super.toString() + " - Authors: " + authors;
     }
 }
 

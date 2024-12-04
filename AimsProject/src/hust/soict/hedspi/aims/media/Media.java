@@ -8,7 +8,7 @@ public abstract class Media {
     private String title;
     private String category;
     private float cost;
-
+    //Nguyen Hoang Phuc 20225905
     public Media(int id, String title, String category, float cost) {
         this.id = id;
         this.title = title;
@@ -29,7 +29,7 @@ public abstract class Media {
     public void setTitle(String title) {
         this.title = title;
     }
-
+    //Nguyen Hoang Phuc 20225905
     public String getCategory() {
         return category;
     }
@@ -43,17 +43,18 @@ public abstract class Media {
     public void setCost(float cost) {
         this.cost = cost;
     }
-
+    //Nguyen Hoang Phuc 20225905
     @Override
     public boolean equals(Object obj) {
         Media media = (Media) obj;
         return media.getTitle().equals(this.getTitle());
     }
-
+    //Nguyen Hoang Phuc 20225905
     public String toString(){
-        return this.getId() + " " + this.getTitle() + " " + this.getCategory() + " " + this.getCost();
+        return "ID: " + this.getId() + " - Title: " + this.getTitle() + " - Category: " +
+                this.getCategory() + " - Cost: " + this.getCost() + "$";
     }
-
+    //Nguyen Hoang Phuc 20225905
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 

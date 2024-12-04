@@ -1,5 +1,5 @@
 //package hust.soict.hedspi.test;
-//
+////Nguyen Hoang Phuc 20225905
 //import hust.soict.hedspi.aims.media.*;
 //
 //import java.util.ArrayList;
@@ -16,7 +16,7 @@
 //                "cd1 director", "cd1 artist");
 //        cd1.addTrack(track1); cd1.addTrack(track2);
 //
-//        DigitalVideoDisc dvd1 = new DigitalVideoDisc("dvd1", "dvd1 category",
+//        DigitalVideoDisc dvd1 = new DigitalVideoDisc(1,"dvd1", "dvd1 category",
 //                100, 40, "dvd1 director");
 //
 //        Book book1 = new Book(1000, "book1", "category book1", 40);

@@ -1,14 +1,14 @@
 package hust.soict.hedspi.aims.media;
-
+//Nguyen Hoang Phuc 20225905
 public class Track implements Playable {
     private String title;
     private int length;
-
+    //Nguyen Hoang Phuc 20225905
     public Track(String title, int length) {
         this.title = title;
         this.length = length;
     }
-
+    //Nguyen Hoang Phuc 20225905
     @Override
     public void play() {
         System.out.println("Playing Track: " + this.title);
@@ -27,7 +27,7 @@ public class Track implements Playable {
     public void setLength(int length) {
         this.length = length;
     }
-
+    //Nguyen Hoang Phuc 20225905
     public boolean equals(Object obj) {
         Track track = (Track) obj;
         if(track.getTitle().equals(this.title) && track.getLength() == this.length) {

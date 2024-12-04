@@ -1,5 +1,5 @@
 package hust.soict.hedspi.aims.cart;
-
+//Nguyen Hoang Phuc 20225905
 import hust.soict.hedspi.aims.media.Media;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class Cart {
             System.out.println("The cart is almost full!");
         }
     }
-
+    //Nguyen Hoang Phuc 20225905
     public void removeMedia(Media media) {
         if(itemsOrdered.contains(media)) {
             itemsOrdered.remove(media);
@@ -27,7 +27,7 @@ public class Cart {
             System.out.println("The media is not in the Cart!");
         }
     }
-
+    //Nguyen Hoang Phuc 20225905
     public float totalCost() {
         float totalCost = 0;
         for(Media media : itemsOrdered) {
@@ -50,6 +50,15 @@ public class Cart {
     public Media findMediaByTitle(String title) {
         for(Media media : itemsOrdered) {
             if(media.getTitle().equalsIgnoreCase(title)) {
+                return media;
+            }
+        }
+        return null;
+    }
+
+    public Media findMediaById(int id) {
+        for(Media media : itemsOrdered) {
+            if(media.getId() == id) {
                 return media;
             }
         }

@@ -11,7 +11,30 @@ public class Aims {
     private static Store store = new Store();
     private static Cart cart = new Cart();
 
+
+
     public static void main(String[] args) {
+        // Add 4 books
+        store.addMedia(new Book(1, "The Great Gatsby", "Novel", 10.99f));
+        store.addMedia(new Book(2, "To Kill a Mockingbird", "Novel", 8.99f));
+        store.addMedia(new Book(3, "1984", "Dystopian", 14.99f));
+        store.addMedia(new Book(4, "Moby-Dick", "Adventure", 9.99f));
+
+        // Add 4 DVDs
+        store.addMedia(new DigitalVideoDisc(5, "Inception", "Sci-Fi", 19.99f, 148, "Christopher Nolan"));
+        store.addMedia(new DigitalVideoDisc(6, "The Matrix", "Sci-Fi", 14.99f, 136, "The Wachowskis"));
+        store.addMedia(new DigitalVideoDisc(7, "The Godfather", "Crime", 24.99f, 175, "Francis Ford Coppola"));
+        store.addMedia(new DigitalVideoDisc(8, "Pulp Fiction", "Crime", 18.99f, 154, "Quentin Tarantino"));
+
+        // Add 4 CDs
+        store.addMedia(new CompactDisc(9, "Thriller", "Pop", 15.99f, 42, "Michael Jackson", "Michael Jackson"));
+        store.addMedia(new CompactDisc(10, "Back in Black", "Rock", 12.99f, 41, "Robert John Lange", "AC/DC"));
+        store.addMedia(new CompactDisc(11, "The Dark Side of the Moon", "Rock", 16.99f, 43, "Pink Floyd", "Pink Floyd"));
+        store.addMedia(new CompactDisc(12, "The Wall", "Rock", 18.99f, 81, "Pink Floyd", "Pink Floyd"));
+
+        store.addMedia(new DigitalVideoDisc(13, "葬送のフリーレン", "Fantasy", 99.99f, 154, "Keiichirō Saitō"));
+
+
         Scanner scanner = new Scanner(System.in);
         int choice;
         do {
@@ -39,7 +62,7 @@ public class Aims {
     }
 
     public static void showMenu() {
-        System.out.println("AIMS: ");
+        System.out.println("Nguyen Hoang Phuc 20225905\nAIMS: ");
         System.out.println("--------------------------------");
         System.out.println("1. View store");
         System.out.println("2. Update store");
@@ -258,6 +281,7 @@ public class Aims {
                 Media mediaToRemove = store.findMediaById(removeId);
                 if(mediaToRemove != null) {
                     store.removeMedia(mediaToRemove);
+                    System.out.println("Removed media from store.");
                 }
                 else {
                     System.out.println("Media not found.");
@@ -363,9 +387,9 @@ public class Aims {
     }
 
     private static void removeMediaFromCart(Scanner scanner) {
-        System.out.println("Enter the title of the media to remove from cart:");
-        String title = scanner.nextLine();
-        Media media = cart.findMediaByTitle(title);
+        System.out.println("Enter the ID of the media to remove from cart:");
+        int id = scanner.nextInt();
+        Media media = cart.findMediaById(id);
 
         if(media != null) {
             cart.removeMedia(media);

@@ -1,9 +1,10 @@
 package hust.soict.hedspi.aims.media;
-
+//Nguyen Hoang Phuc 20225905
 public class Disc extends Media {
     private int length;
     private String director;
 
+    //Nguyen Hoang Phuc 20225905
     public Disc(int id, String title, String category, float cost, int length, String director) {
         super(id, title, category, cost);
         this.length = length;
@@ -24,6 +25,6 @@ public class Disc extends Media {
     }
 
     public String toString() {
-        return super.toString() + ", length: " + length + ", director: " + director;
+        return super.toString() + " - Length: " + length + " - Director: " + director;
     }
 }

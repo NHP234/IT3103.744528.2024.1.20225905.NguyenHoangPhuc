@@ -1,17 +1,17 @@
 package hust.soict.hedspi.aims.media;
-
+//Nguyen Hoang Phuc 20225905
 import java.util.ArrayList;
 import java.util.List;
 
 public class CompactDisc extends Disc implements Playable {
     private String artist;
     private List<Track> tracks = new ArrayList<Track>();
-
+    //Nguyen Hoang Phuc 20225905
     public CompactDisc(int id, String title, String category, float cost, int length, String director, String artist) {
         super(id, title, category, cost, length, director);
         this.artist = artist;
     }
-
+    //Nguyen Hoang Phuc 20225905
     @Override
     public void play() {
         System.out.println("Playing CD: " + getTitle());
@@ -32,6 +32,7 @@ public class CompactDisc extends Disc implements Playable {
         }
         else System.out.println("Track already added!");
     }
+    //Nguyen Hoang Phuc 20225905
     public void removeTrack(Track track) {
         if(tracks.contains(track)) {
             tracks.remove(track);
@@ -49,12 +50,19 @@ public class CompactDisc extends Disc implements Playable {
     }
 
     public String toString() {
-        String s = super.toString();
-        s += ", Artist: " + artist;
-        s += "\n";
-        for(Track track : tracks) {
-            s += track.toString() + "\n";
+        StringBuilder s = new StringBuilder(super.toString());
+        s.append(", Artist: ").append(artist);
+
+        if (!tracks.isEmpty()) {
+            s.append("\n");
+            for (int i = 0; i < tracks.size(); i++) {
+                s.append(tracks.get(i).toString());
+                if (i < tracks.size() - 1) {
+                    s.append("\n");
+                }
+            }
         }
-        return s;
+
+        return s.toString();
     }
 }
