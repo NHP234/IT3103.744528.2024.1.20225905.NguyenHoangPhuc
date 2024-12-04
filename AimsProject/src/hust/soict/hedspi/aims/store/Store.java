@@ -25,4 +25,26 @@ public class Store {
         else {
         System.out.println("The media is not in the store");}
     }
+
+    public Media findMediaByTitle(String title) {
+        for(Media media : itemsInStore) {
+            if(media.getTitle().equalsIgnoreCase(title)) {
+                return media;
+            }
+        }
+        return null;
+    }
+
+    public Media findMediaById(int id) {
+        for(Media media : itemsInStore) {
+            if(media.getId() == id) {
+                return media;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Media> getItemsInStore() {
+        return itemsInStore;
+    }
 }

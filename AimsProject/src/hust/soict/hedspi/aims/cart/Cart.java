@@ -37,32 +37,31 @@ public class Cart {
         return totalCost;
     }
 
-//    public void print()
-//    {
-//        System.out.println("Nguyen Hoang Phuc 20225905\n***********************CART***********************\nOrdered Items:\n");
-//        for(Media media : itemsOrdered) {
-//            System.out.println(media.toString());
-//        }
-//        System.out.println("Total cost: " + this.totalCost() + "\n***************************************************");
-//    }
+    public void print()
+    {
+        System.out.println("Nguyen Hoang Phuc 20225905\n***********************CART***********************\nOrdered Items:\n");
+        for(Media media : itemsOrdered) {
+            System.out.println(media.toString());
+        }
+        System.out.println("Total cost: " + this.totalCost() + "\n***************************************************");
+    }
     //Nguyen Hoang Phuc 20225905
-//    public void searchByID(int id) {
-//        for(int i = 0; i < qtyOrdered; i++) {
-//            if(itemsOrdered[i].getID() == id) {
-//                System.out.println("Found: " + itemsOrdered[i].toString());
-//                return;
-//            }
-//        }
-//        System.out.println("No such ID: " + id + "\n");
-//    }
-//
-//    public void searchByTitle(String title) {
-//        for(int i = 0; i < qtyOrdered; i++) {
-//            if(itemsOrdered[i].isMatch(title)) {
-//                System.out.println("Found: " + itemsOrdered[i].toString());
-//                return;
-//            }
-//        }
-//        System.out.println("No such title: " + title + "\n");
-//    }
+
+    public Media findMediaByTitle(String title) {
+        for(Media media : itemsOrdered) {
+            if(media.getTitle().equalsIgnoreCase(title)) {
+                return media;
+            }
+        }
+        return null;
+    }
+
+    public void clear() {
+        itemsOrdered.clear();
+    }
+
+    public ArrayList<Media> getItemsOrdered() {
+        return itemsOrdered;
+    }
+
 }
