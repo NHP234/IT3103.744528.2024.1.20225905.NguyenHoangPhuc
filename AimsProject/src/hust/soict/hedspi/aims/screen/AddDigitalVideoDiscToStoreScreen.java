@@ -9,9 +9,11 @@ import javafx.scene.layout.VBox;
 public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen {
     private TextField directorInput;
     private TextField lengthInput;
+    private StoreScreen storeScreen; // Reference to the current StoreScreen
 
-    public AddDigitalVideoDiscToStoreScreen(Store store) {
-        super(store);
+    public AddDigitalVideoDiscToStoreScreen(Store store, StoreScreen storeScreen) {
+        super(store, storeScreen);
+        this.storeScreen = storeScreen; // Save the reference
 
         // Add DVD-specific fields
         VBox root = (VBox) this.getScene().getRoot();
@@ -24,6 +26,8 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen {
         root.getChildren().addAll(directorLabel, directorInput, lengthLabel, lengthInput);
 
         this.setTitle("Add DVD to Store");
+        this.setOnCloseRequest(e -> this.close());
+
     }
 
     @Override
@@ -40,6 +44,7 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen {
         store.addMedia(dvd);
 
         System.out.println("DVD added to the store: " + dvd);
+
         this.close();
     }
 }

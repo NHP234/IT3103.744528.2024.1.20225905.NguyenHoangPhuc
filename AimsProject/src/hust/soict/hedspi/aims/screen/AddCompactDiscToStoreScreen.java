@@ -8,9 +8,11 @@ import javafx.scene.layout.VBox;
 
 public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
     private TextField artistInput;
+    private StoreScreen storeScreen;
 
-    public AddCompactDiscToStoreScreen(Store store) {
-        super(store);
+    public AddCompactDiscToStoreScreen(Store store, StoreScreen storeScreen) {
+        super(store, storeScreen);
+        this.storeScreen = storeScreen; // Save the reference
 
         // Add artist-specific field
         VBox root = (VBox) this.getScene().getRoot();
@@ -20,6 +22,8 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
         root.getChildren().add(artistInput);
 
         this.setTitle("Add CD to Store");
+        this.setOnCloseRequest(e -> this.close());
+
     }
 
     @Override
@@ -35,6 +39,7 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
         store.addMedia(cd);
 
         System.out.println("CD added to the store: " + cd);
+
         this.close();
     }
 }

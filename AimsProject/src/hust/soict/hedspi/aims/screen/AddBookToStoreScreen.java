@@ -8,9 +8,11 @@ import javafx.scene.layout.VBox;
 
 public class AddBookToStoreScreen extends AddItemToStoreScreen {
     private TextField authorInput;
+    private StoreScreen storeScreen;
 
-    public AddBookToStoreScreen(Store store) {
-        super(store);
+    public AddBookToStoreScreen(Store store, StoreScreen storeScreen) {
+        super(store, storeScreen); // Pass the StoreScreen reference
+        this.storeScreen = storeScreen;
 
         // Add author-specific field
         VBox root = (VBox) this.getScene().getRoot();
@@ -20,6 +22,8 @@ public class AddBookToStoreScreen extends AddItemToStoreScreen {
         root.getChildren().add(authorInput);
 
         this.setTitle("Add Book to Store");
+        this.setOnCloseRequest(e -> this.close());
+
     }
 
     @Override
@@ -38,6 +42,7 @@ public class AddBookToStoreScreen extends AddItemToStoreScreen {
         store.addMedia(book);
 
         System.out.println("Book added to the store: " + book);
+
         this.close();
     }
 }

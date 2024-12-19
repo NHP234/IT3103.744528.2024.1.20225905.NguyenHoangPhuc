@@ -9,14 +9,16 @@ import javafx.stage.Stage;
 
 public abstract class AddItemToStoreScreen extends Stage {
     protected Store store;
+    protected StoreScreen storeScreen; // Add a reference to the StoreScreen
 
     // Shared fields
     protected TextField titleInput;
     protected TextField categoryInput;
     protected TextField costInput;
 
-    public AddItemToStoreScreen(Store store) {
+    public AddItemToStoreScreen(Store store, StoreScreen storeScreen) {
         this.store = store;
+        this.storeScreen = storeScreen; // Store the StoreScreen reference
 
         VBox root = new VBox();
         root.setPadding(new Insets(10));
@@ -39,6 +41,8 @@ public abstract class AddItemToStoreScreen extends Stage {
 
         root.getChildren().addAll(menuBar, titleLabel, titleInput, categoryLabel, categoryInput, costLabel, costInput, submitButton);
 
+        this.setOnCloseRequest(e -> this.close());
+
         Scene scene = new Scene(root, 400, 300);
         this.setScene(scene);
     }
@@ -49,7 +53,11 @@ public abstract class AddItemToStoreScreen extends Stage {
 
         Menu menu = new Menu("Options");
         MenuItem viewStore = new MenuItem("View Store");
-        viewStore.setOnAction(e -> new StoreScreen(store).show());
+
+        viewStore.setOnAction(e -> {
+            // Trigger a refresh on the existing StoreScreen
+            storeScreen.refreshStore();
+        });
 
         menu.getItems().addAll(viewStore);
         menuBar.getMenus().add(menu);
