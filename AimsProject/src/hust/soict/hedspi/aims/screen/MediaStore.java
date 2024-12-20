@@ -3,6 +3,7 @@ package hust.soict.hedspi.aims.screen;
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
+import javafx.application.Platform;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,9 +37,11 @@ public class MediaStore extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 cart.addMedia(media);
                 JOptionPane.showMessageDialog(null, media.getTitle() + " has been added to the cart!");
-                if (CartScreen.getController() != null) { // Static reference to CartScreen
-                    CartScreen.getController().updateTotalCost();
-                }
+                Platform.runLater(() -> {
+                    if (CartScreen.getController() != null) {
+                        CartScreen.getController().updateTotalCost();
+                    }
+                });
             }
         });
         container.add(addToCartButton);

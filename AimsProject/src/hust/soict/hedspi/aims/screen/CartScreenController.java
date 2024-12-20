@@ -3,12 +3,17 @@ package hust.soict.hedspi.aims.screen;
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 //Phuc 20225905
 public class CartScreenController {
     private Cart cart;
@@ -52,7 +57,7 @@ public class CartScreenController {
                     @Override
                     public void changed(ObservableValue<? extends Media> observableValue, Media oldValue, Media newValue) {
                         if (newValue != null) {
-                            updateButtonBar(newValue);
+                            Platform.runLater(() -> updateButtonBar(newValue));
                         }
                     }
                 }
@@ -77,7 +82,7 @@ public class CartScreenController {
         cart.removeMedia(media);
         if (media != null) {
             cart.removeMedia(media);
-            updateTotalCost();  // Refresh total cost after removing
+            Platform.runLater(() -> updateTotalCost());
         }
     }
 
@@ -88,20 +93,37 @@ public class CartScreenController {
     void btnPlayPressed(ActionEvent event) {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         if (media instanceof Playable) {
-            ((Playable) media).play(); // Execute play logic (likely logs to console)
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            PrintStream ps = new PrintStream(baos);
+            PrintStream old = System.out;
+            System.setOut(ps);
+
+            ((Playable) media).play(); // Call the play() method
+
+            // Restore console output
+            System.out.flush();
+            System.setOut(old);
+
+            // Show captured output in an alert
+            String playOutput = baos.toString();
+            Platform.runLater(() -> showInfo(playOutput));
         } else {
-            showError("This item is not playable.");
+            Platform.runLater(() -> showError("This item is not playable."));
         }
     }
 
     @FXML
     void btnPlaceOrderPressed(ActionEvent event) {
         if (cart.getItemsOrdered().size() > 0) {
-            showInfo("Order placed successfully with " + cart.getItemsOrdered().size() + " items.");
-            cart.clear(); // Clear the cart after order is placed
-            updateTotalCost(); // Update the total cost after clearing
+            String orderMessage = "Order placed successfully with " + cart.getItemsOrdered().size() + " items.";
+            cart.clear(); // Clear the cart immediately
+
+            Platform.runLater(() -> {
+                showInfo(orderMessage); // Show message on FX thread
+                updateTotalCost(); // Update cost on FX thread (now that cart is cleared)
+            });
         } else {
-            showError("Your cart is empty!");
+            Platform.runLater(() -> showError("Your cart is empty!"));
         }
     }
 
@@ -123,5 +145,7 @@ public class CartScreenController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
 
 }
