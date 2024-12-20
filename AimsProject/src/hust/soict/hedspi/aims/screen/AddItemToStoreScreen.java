@@ -36,14 +36,14 @@ public abstract class AddItemToStoreScreen extends Stage {
         Label costLabel = new Label("Cost: ");
         costInput = new TextField();
 
-        Button submitButton = new Button("Add");
-        submitButton.setOnAction(e -> handleSubmit());
+//        Button submitButton = new Button("Add");
+//        submitButton.setOnAction(e -> handleSubmit());
 
-        root.getChildren().addAll(menuBar, titleLabel, titleInput, categoryLabel, categoryInput, costLabel, costInput, submitButton);
+        root.getChildren().addAll(menuBar, titleLabel, titleInput, categoryLabel, categoryInput, costLabel, costInput);
 
         this.setOnCloseRequest(e -> this.close());
 
-        Scene scene = new Scene(root, 400, 300);
+        Scene scene = new Scene(root, 400, 600);
         this.setScene(scene);
     }
 

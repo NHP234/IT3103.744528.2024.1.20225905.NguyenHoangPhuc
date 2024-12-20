@@ -2,6 +2,7 @@ package hust.soict.hedspi.aims.screen;
 
 import hust.soict.hedspi.aims.media.DigitalVideoDisc;
 import hust.soict.hedspi.aims.store.Store;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -23,7 +24,11 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen {
         Label lengthLabel = new Label("Length (minutes): ");
         lengthInput = new TextField();
 
-        root.getChildren().addAll(directorLabel, directorInput, lengthLabel, lengthInput);
+        Button submitButton = new Button("Add");
+        submitButton.setOnAction(e -> handleSubmit());
+
+        root.getChildren().addAll(directorLabel, directorInput, lengthLabel, lengthInput, submitButton);
+
 
         this.setTitle("Add DVD to Store");
         this.setOnCloseRequest(e -> this.close());

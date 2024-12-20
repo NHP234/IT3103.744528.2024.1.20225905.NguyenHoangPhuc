@@ -1,5 +1,7 @@
 package hust.soict.hedspi.aims.media;
 //Nguyen Hoang Phuc 20225905
+import hust.soict.hedspi.aims.exception.PlayerException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,7 @@ public class CompactDisc extends Disc implements Playable {
     }
     //Nguyen Hoang Phuc 20225905
     @Override
-    public void play() {
+    public void play() throws PlayerException {
         System.out.println("Playing CD: " + getTitle());
         System.out.println("Artist: " + getArtist());
         for(Track track : tracks) {

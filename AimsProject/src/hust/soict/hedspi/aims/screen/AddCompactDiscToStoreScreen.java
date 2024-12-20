@@ -2,6 +2,7 @@ package hust.soict.hedspi.aims.screen;
 
 import hust.soict.hedspi.aims.media.CompactDisc;
 import hust.soict.hedspi.aims.store.Store;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -20,6 +21,10 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
         artistInput = new TextField();
         root.getChildren().add(artistLabel);
         root.getChildren().add(artistInput);
+
+        Button submitButton = new Button("Add");
+        submitButton.setOnAction(e -> handleSubmit());
+        root.getChildren().add(submitButton);
 
         this.setTitle("Add CD to Store");
         this.setOnCloseRequest(e -> this.close());

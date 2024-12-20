@@ -2,6 +2,7 @@ package hust.soict.hedspi.aims.screen;
 
 import hust.soict.hedspi.aims.media.Book;
 import hust.soict.hedspi.aims.store.Store;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -21,8 +22,13 @@ public class AddBookToStoreScreen extends AddItemToStoreScreen {
         root.getChildren().add(authorLabel);
         root.getChildren().add(authorInput);
 
+        Button submitButton = new Button("Add");
+        submitButton.setOnAction(e -> handleSubmit());
+        root.getChildren().add(submitButton);
+
         this.setTitle("Add Book to Store");
         this.setOnCloseRequest(e -> this.close());
+
 
     }
 

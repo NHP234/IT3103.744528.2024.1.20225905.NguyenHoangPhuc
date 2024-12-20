@@ -1,4 +1,7 @@
 package hust.soict.hedspi.aims.media;
+
+import hust.soict.hedspi.aims.exception.PlayerException;
+
 //Nguyen Hoang Phuc 20225905
 public class Track implements Playable {
     private String title;
@@ -10,9 +13,14 @@ public class Track implements Playable {
     }
     //Nguyen Hoang Phuc 20225905
     @Override
-    public void play() {
-        System.out.println("Playing Track: " + this.title);
-        System.out.println("Track length: " + this.length);
+    public void play() throws PlayerException {
+        if(this.getLength() > 0) {
+            System.out.println("Playing Track: " + this.title);
+            System.out.println("Track length: " + this.length);
+        } else {
+            throw new PlayerException("ERROR: DVD length is non - positive");
+        }
+
     }
 
     public String getTitle() {

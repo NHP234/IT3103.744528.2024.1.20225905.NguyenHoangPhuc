@@ -93,20 +93,25 @@ public class CartScreenController {
     void btnPlayPressed(ActionEvent event) {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         if (media instanceof Playable) {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            PrintStream ps = new PrintStream(baos);
-            PrintStream old = System.out;
-            System.setOut(ps);
+            try {
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                PrintStream ps = new PrintStream(baos);
+                PrintStream old = System.out;
+                System.setOut(ps);
 
-            ((Playable) media).play(); // Call the play() method
+                ((Playable) media).play(); // Call the play() method
 
-            // Restore console output
-            System.out.flush();
-            System.setOut(old);
+                // Restore console output
+                System.out.flush();
+                System.setOut(old);
 
-            // Show captured output in an alert
-            String playOutput = baos.toString();
-            Platform.runLater(() -> showInfo(playOutput));
+                // Show captured output in an alert
+                String playOutput = baos.toString();
+                Platform.runLater(() -> showInfo(playOutput));
+            } catch (Exception e) {
+                Platform.runLater(() -> showError("Error playing media: " + e.getMessage()));
+            }
+
         } else {
             Platform.runLater(() -> showError("This item is not playable."));
         }

@@ -1,6 +1,7 @@
 package hust.soict.hedspi.aims.screen;
 
 import hust.soict.hedspi.aims.cart.Cart;
+import hust.soict.hedspi.aims.exception.PlayerException;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
 import javafx.application.Platform;
@@ -85,11 +86,21 @@ public class MediaStore extends JPanel {
         playMessage.setAlignmentX(CENTER_ALIGNMENT);
 
         // Mock `play` behavior by calling `playable.play` and showing details
-        playable.play(); // Output playback details to console (already implemented in `Playable`)
-        if (media instanceof hust.soict.hedspi.aims.media.Disc) {
-            playMessage.setText("Length: " + ((hust.soict.hedspi.aims.media.Disc) media).getLength() + " minutes");
-        } else {
-            playMessage.setText("Enjoy your media!");
+        try {
+            // Mock `play` behavior by calling `playable.play`
+            playable.play(); // Output playback details to console
+
+            // Display media-specific information if available
+            if (media instanceof hust.soict.hedspi.aims.media.Disc) {
+                playMessage.setText("Length: " + ((hust.soict.hedspi.aims.media.Disc) media).getLength() + " minutes");
+            } else {
+                playMessage.setText("Enjoy your media!");
+            }
+        } catch (PlayerException e) {
+            // Handle the exception
+            JOptionPane.showMessageDialog(null, "Error playing media: " + e.getMessage(), "Playback Error", JOptionPane.ERROR_MESSAGE);
+            playDialog.dispose(); // Close the dialog if an error occurs
+            return; // Exit the method
         }
 
         content.add(Box.createVerticalGlue());
