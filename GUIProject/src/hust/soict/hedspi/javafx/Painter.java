@@ -15,7 +15,6 @@ public class Painter extends Application {
         stage.setTitle("Phuc20225905 - Painter");
         stage.setScene(scene);
         stage.show();
-
     }
 
     public static void main(String[] args) {

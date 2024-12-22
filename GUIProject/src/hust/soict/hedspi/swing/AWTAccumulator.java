@@ -11,7 +11,7 @@ public class AWTAccumulator extends Frame {
 
     public AWTAccumulator() {
         setLayout(new GridLayout(2, 2));
-        add(new Label("Enter an Integer: "));
+        add(new Label("Phuc20225905 - Enter an Integer: "));
 
         tfInput = new TextField(10);
         add(tfInput);

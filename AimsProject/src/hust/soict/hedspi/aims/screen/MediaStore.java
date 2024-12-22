@@ -98,7 +98,8 @@ public class MediaStore extends JPanel {
             }
         } catch (PlayerException e) {
             // Handle the exception
-            JOptionPane.showMessageDialog(null, "Error playing media: " + e.getMessage(), "Playback Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error playing media: " + e.getMessage(),
+                    "Playback Error", JOptionPane.ERROR_MESSAGE);
             playDialog.dispose(); // Close the dialog if an error occurs
             return; // Exit the method
         }
